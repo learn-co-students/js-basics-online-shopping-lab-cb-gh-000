@@ -86,9 +86,3 @@ function placeOrder(cardNumber) {
         cart = []
     }
 }
-addToCart('Banana');
-viewCart();
-addToCart('Dildo');
-viewCart();
-addToCart('BBC');
-viewCart();
