@@ -1,4 +1,4 @@
-var cart = [];
+let cart = [];
 
 function getCart() {
     return cart;
@@ -11,8 +11,8 @@ function setCart(c) {
 
 function addToCart(item) {
     let price = Math.floor(Math.random() * 100);
-    cart.push({[item]:price})
-    console.log(`${item} has been added to your cart.`)
+    cart.push({[item]:price});
+    console.log(`${item} has been added to your cart.`);
     return cart
 }
 
@@ -48,23 +48,22 @@ function viewCart() {
 }
 
 function total() {
-    var total = 0
+    let total = 0;
     for (let i = 0; i < cart.length; i++) {
-        let items = cart[i]
-        let item = Object.keys(items)[0]
-        let price = items[item]
-        total += price
+        let items = cart[i];
+        let item = Object.keys(items)[0];
+        total += items[item]
     }
     return total
 }
 
 function removeFromCart(item) {
-    let inCart = false
+    let inCart = false;
 
     for (let i = 0, l = cart.length; i < l; i++) {
         if (cart[i].hasOwnProperty(item)) {
-            inCart = true
-            cart = cart.slice(0, i).concat(cart.slice(i+1))
+            inCart = true;
+            cart = cart.slice(0, i).concat(cart.slice(i+1));
             l--
         }
     }
@@ -79,17 +78,17 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
     if (!cardNumber) {
-         console.log("Sorry, we don't have a credit card on file for you.")
+         console.log("Sorry, we don't have a credit card on file for you.");
         return false
     }
     else {
-        console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`)
+        console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
         cart = []
     }
 }
-addToCart('Banana')
-viewCart()
-addToCart('Dildo')
-viewCart()
-addToCart('BBC')
-viewCart()
+addToCart('Banana');
+viewCart();
+addToCart('Dildo');
+viewCart();
+addToCart('BBC');
+viewCart();
