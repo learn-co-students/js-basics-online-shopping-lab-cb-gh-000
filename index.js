@@ -52,9 +52,9 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   if (cardNumber) {
-    getCart().length = 0
     var sumToCharge = total()
-    return `Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`
+    getCart().length = 0
+    return `Your total cost is $${sumToCharge}, which will be charged to the card ${cardNumber}.`
   } else {
     return "Sorry, we don't have a credit card on file for you."
   }
