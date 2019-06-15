@@ -49,8 +49,9 @@ function total() {
 function removeFromCart(item) {
   // write your code here
   var i = 0;
+  console.log(item)
   while(i < cart.length){
-    if(cart[i].itemName === item)
+    if(cart[i] === item)
     {
       break;
     }
@@ -62,11 +63,23 @@ function removeFromCart(item) {
     return "That item is not in your cart.";
   }
   else{
-    delete cart[i];
+    cart = cart.splice(i,1);
     return cart;
   }
 }
 
-function placeOrder(cardNumber) {
+function placeOrder(cardNumber='') {
   // write your code here
+  if(cardNumber === ''){
+    return "Sorry, we don't have a credit card on file for you.";
+  }
+  else{
+    var i = 0;
+    var cost = 0;
+    for(i = 0; i < cart.length; i++){
+      cost = cost + cart[i]["itemPrice"];
+    }
+    cart=[];
+    return `Your total cost is $${cost}, which will be charged to the card ${cardNumber}.`;
+  }
 }
